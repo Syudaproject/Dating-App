@@ -11,7 +11,7 @@ namespace DatingApp.WebApp.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
-        //public DbSet<> MyProperty { get; set; }
+        public DbSet<User> User { get; set; }
         //protected override void OnModelCreating(ModelBuilder builder)
         //{
         //    builder.Entity<Language>(entity => {
