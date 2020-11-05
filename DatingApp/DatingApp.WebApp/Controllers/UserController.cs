@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace DatingApp.WebApp.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
+    //public class UserController : BaseApiController
     {
         private readonly DataContext _context;
 
@@ -21,6 +23,7 @@ namespace DatingApp.WebApp.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetUsers()
         {
             var users = await _context.User.ToListAsync();
